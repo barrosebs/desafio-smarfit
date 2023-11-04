@@ -9,7 +9,7 @@ export class GetUnitService {
   constructor(private httpClient: HttpClient) {}
   readonly apiUrl =
     'https://test-frontend-developer.s3.amazonaws.com/data/locations.json ';
-  getAllUnit(): Observable<UnitsResponse> {
+  getAllUnits(): Observable<UnitsResponse> {
     return this.httpClient.get<UnitsResponse>(this.apiUrl);
   }
 }

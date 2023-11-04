@@ -1,4 +1,5 @@
-import { GetUnitService } from './../../services/get-unit.service';
+import { Location } from 'src/app/types/location.interface.ts';
+import { GetUnitService } from 'src/app/services/get-unit.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -7,8 +8,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })
-export class FormsComponent {
-  results = [];
+export class FormsComponent implements OnInit {
+  results: Location[] = [];
+  filterResults: Location[] = [];
   formGroup!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -17,13 +19,22 @@ export class FormsComponent {
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       hour: '',
-      showClosed: false,
+      showClosed: true,
     });
-    this.unitService.getAllUnit().subscribe((data) => console.log(data));
+    this.unitService.getAllUnits().subscribe((data) => {
+      this.results = data.locations;
+      this.filterResults = data.locations;
+    });
   }
 
   onSubmit(): void {
-    console.log(this.formGroup.valid);
+    if (this.formGroup.value.showClosed) {
+      this.filterResults = this.results.filter(
+        (location) => location.opened === true
+      );
+    } else {
+      this.filterResults = this.results;
+    }
   }
 
   onClean(): void {
