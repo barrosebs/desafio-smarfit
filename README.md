@@ -8,10 +8,12 @@ Caso de Uso: https://github.com/bioritmo/front-end-code-challenge-smartsite/blob
 
 ## Development server
 
+###Site: https://desafio-smartfit.netlify.app/
+
 Utilizando o netlify.com para atender um dos requisitos de publicação em produção para testes e navegação! Depois de algumas pesquisas encontrei essa ferramenta de forma gratuita!
 
 ## Novas ideias
 
 O objetivo é buscar novos casos de uso para aprimorar o meu desenvolvimento seja em Angular e/ou outras tecnologias.
 
-## #RumoAoProximoNivel
+### #RumoAoProximoNivel
