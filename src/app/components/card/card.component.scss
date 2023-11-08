@@ -24,14 +24,16 @@
   background-color: var(--ligth-divider);
 
 }
-.card span {
+.card span,.card .hour {
   font-weight: 700;
   font-size: 12px;
   color: var(--red);
 }
+
 .card span.opened {
   color: var(--green);
 }
+
 .card h3{
   color: var(--light-grey);
   font-size: 18px;

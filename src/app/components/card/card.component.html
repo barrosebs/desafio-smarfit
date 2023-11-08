@@ -33,7 +33,14 @@
   </ul>
   <ul>
     <li *ngFor="let schedule of card.schedules">
-      <b>{{ schedule.weekdays }}</b> {{ schedule.hour }}
+      <b>{{ schedule.weekdays }}</b>
+      <p
+        [ngClass]="{
+          hour: schedule.hour === 'Fechada'
+        }"
+      >
+        {{ schedule.hour }}
+      </p>
     </li>
   </ul>
 </div>
